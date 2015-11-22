@@ -1,0 +1,21 @@
+package employesAvecHeritage ; 
+
+public abstract class EmployeAvecHSup extends EmployeQuelconque {
+
+    protected static double TEMPS_TRAVAIL = 35, TAUX_HORAIRE = 7.5;
+    protected double majoration, heures ;
+    
+    public EmployeAvecHSup(String nom, double majoration) {
+	this.majoration = majoration ;
+	super(nom);
+    }
+    public void setTravail(double heures) { this.heures = heures ; }
+    
+    public double salaireHebdo() {
+	if (heures > TEMPS_TRAVAIL)
+	    return TEMPS_TRAVAIL * TAUX_HORAIRE
+		+ (heures - TEMPS_TRAVAIL) * TAUX_HORAIRE * majoration ;
+	return heures * TAUX_HORAIRE;
+    }
+   
+}
